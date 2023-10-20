@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block body %}
+    <h1>Nueva Entrada</h1>
+ 
+    <form id="frmEntrada" method="POST" action="{% url 'entry' %}">
+        <div class="fila">
+            <h4 class="error"> {{ getError }} </h4>
+        </div>
+        <div class="fila">
+            {% csrf_token %}
+            {{ formCreate }}
+        </div>
+        <div class="fila">
+            <input class="btn btn-info" type="submit" id="btnCrear" name="btnCrear" value="Crear" />            
+        </div>
+    </form>
+    
+{% endblock %}

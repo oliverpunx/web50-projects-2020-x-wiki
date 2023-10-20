@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block body %}
+    <h1>Editar</h1>
+ 
+    <form id="frmEditar" method="POST" action="{% url 'edit' title %}">
+        <div class="fila">
+            <h4 class="error"> {{ getError|safe }} </h4>
+        </div>
+        <div class="col">
+            <div class="fila"><h2>{{ title|safe }}</h2></div>
+            {% csrf_token %}
+            <div class="fila">
+                <input type="textarea" name="entrada" id="contenido" value="{{ formEdit }}"/>
+            </div>
+        </div>
+        <div class="col">
+            <input class="btn btn-info" type="submit" id="btnCrear" name="btnCrear" value="Actualizar" />            
+        </div>
+    </form>
+    
+{% endblock %}
